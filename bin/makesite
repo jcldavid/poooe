@@ -121,7 +121,7 @@ function createDir(callback) {
 
 function checkDomain(callback) {
   ;(function(cb) {
-    if (typeof domain === undefined) {
+    if (typeof domain === 'undefined') {
       read({
         prompt: 'Enter domain: '
       }, function(err, d) {
