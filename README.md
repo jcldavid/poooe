@@ -10,11 +10,11 @@ Makes it easier to create initial structure of a website to a production server.
 
 ## Install
 
-    npm install -g poooe
+    $ npm install -g poooe
 
 ## Usage
 
-    poooe [sitename] [--type] [--nginxpath]
+    $ poooe [sitename] [--type] [--nginxpath]
 
 > You might want to use **sudo** when not the root user
 
@@ -27,24 +27,29 @@ Makes it easier to create initial structure of a website to a production server.
     <tr>
         <td>sitename</td>
         <td><em>None</em></td>
+        <td></td>
     </tr>
     <tr>
         <td>type</td>
         <td>nodejs</td>
-        <td><code>nodejs</code> or <code>php</code></td>
+        <td>Either <code>nodejs</code> or <code>php</code></td>
     </tr>
     <tr>
         <td>nginxpath</td>
         <td>/etc/nginx/sites-enabled/</td>
+        <td></td>
     </tr>
 </table>
 
-## Example
+## Examples
+
 
 Linux:
+
 ![Linux](http://i.imgur.com/8SSFW9b.png)
 
 Windows:
+
 ![Windows](http://i.imgur.com/I1tG6mE.png)
 
 See `lib/templates` for the git hook and nginx config template.
