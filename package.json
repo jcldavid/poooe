@@ -3,8 +3,9 @@
     "version": "1.0.2",
     "author": "Cyrus David <david@jcyr.us>",
     "description": "Node.js/PHP Init Script",
+    "preferGlobal": "true",
     "bin": {
-        "poooe": "./makesite.js"
+        "poooe": "./bin/makesite"
     },
     "repository": {
         "type": "git",
