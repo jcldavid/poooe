@@ -70,7 +70,7 @@ requireDir(function() {
 })
 
 function requireDir(callback) {
-  var count = 0;
+  var count = 0
   for (var dir in dirs) {
     ;(function(dir){
       fs.mkdir(dirs[dir], function(err) {
@@ -101,7 +101,8 @@ function createDir(callback) {
 
   domainDirs = {
     git: path.join(dirs['git'], normalizedDomain),
-    tree: path.join(dirs['tree'], normalizedDomain)
+    tree: path.join(dirs['tree'], normalizedDomain),
+    log: path.join(dirs['tree'], normalizedDomain),
   }
   var count = 0
   for (var d in domainDirs) {

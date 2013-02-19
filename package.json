@@ -1,6 +1,6 @@
 {
     "name": "poooe",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "author": "Cyrus David <david@jcyr.us>",
     "description": "Node.js/PHP Init Script",
     "preferGlobal": "true",
