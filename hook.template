@@ -1,0 +1,11 @@
+#! /bin/sh
+
+GIT_WORK_TREE={{treeDir}}
+export GIT_WORK_TREE
+git checkout -f
+APP=${GIT_WORK_TREE}/app.js
+export PORT={{PORT}}
+export NODE_ENV=production
+LOG_DIR={{log}}
+forever stop ${APP}
+forever start -a -o ${LOG_DIR}/output.log -e ${LOG_DIR}/error.log ${APP}
