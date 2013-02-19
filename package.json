@@ -1,0 +1,28 @@
+{
+    "name": "Pooe",
+    "version": "1.0.0",
+    "author": "Cyrus David <david@jcyr.us>",
+    "description": "Node.js/PHP Init Script",
+    "bin": {
+        "make_site": "./makesite.js"
+    },
+    "scripts": {
+        "create": "node ./makesite.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Apathetic012/poooe"
+    },
+    "keywords": ["git", "nginx", "bare-repository", "configuration", "initialization", "justin-bieber"],
+    "dependencies": {
+        "ansi": "0.1.x",
+        "exec-sync": "0.1.x",
+        "hogan.js": "2.0.x",
+        "read": "1.0.x"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=0.8",
+        "npm": ">=1.2"
+    }
+}
