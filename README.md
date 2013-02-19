@@ -10,11 +10,25 @@ Makes it easier to create initial structure of a website to a production server.
 
 ## Usage
 
-    poooe [sitename] [--type=nodejs]
+    poooe [sitename] [--type] [--nginxpath]
 
-If you don't enter `sitename` it will manually ask you to enter the domain name. But if you don't enter the type it will default to `nodejs`.
-
-Accepted type parameter values:
-
-    - nodejs
-    - php
+<table>
+    <tr>
+        <td>Parameter</td>
+        <td>Default</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>sitename</td>
+        <td><em>None</em></td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>nodejs</td>
+        <td><code>nodejs</code> or <code>php</code></td>
+    </tr>
+    <tr>
+        <td>nginxpath</td>
+        <td>/etc/nginx/sites-enabled/</td>
+    </tr>
+</table>

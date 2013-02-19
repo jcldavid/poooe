@@ -23,14 +23,11 @@ var dirs = {
   log: path.join(process.env.HOME, 'logs')
 }
 
-// Configure this 
-var nginxConf = path.join('/etc/nginx/sites-enabled/' + normalizedDomain + '.conf');
-
 logger.addLevel('warn', 'red')
 logger.addLevel('info', 'cyan')
 logger.addLevel('success', 'brightGreen')
 
-var domain, normalizedDomain, domainDirs, projectType = 'nodejs';
+var domain, normalizedDomain, domainDirs, nginxPath, projectType = 'nodejs';
 
 requireDir(function() {
   domain = (function(args){
@@ -49,6 +46,15 @@ requireDir(function() {
       }
     }
     return 'nodejs'
+  })(process.argv)
+  nginxPath = (function(args){
+    for (var arg in args) {
+      var type = args[arg].match(/^--nginxpath=(.*)/)
+      if (type !== null) {
+        return type[1]
+      }
+    }
+    return '/etc/nginx/sites-enabled/'
   })(process.argv)
   checkDomain(function() {
     createDir(function() {
@@ -91,7 +97,7 @@ function requireDir(callback) {
 
 function createDir(callback) {
 
-  var normalizedDomain = domain.replace(/[\.-]/i, '_')
+  normalizedDomain = domain.replace(/[\.-]/i, '_')
 
   domainDirs = {
     git: path.join(dirs['git'], normalizedDomain),
@@ -185,9 +191,10 @@ function findOpenPort(callback) {
 
 function writeFiles(options) {
   var nginxTemplate = Hogan.compile(fs.readFileSync('nginx.template', 'utf-8'))
-  fs.writeFileSync(nginxConf, nginxTemplate.render(options))
+  var nginxFile = path.join(nginxPath, normalizedDomain + '.conf')
+  fs.writeFileSync(nginxFile, nginxTemplate.render(options))
   logger.success('Created config file: ')
-  console.log(nginxConf)
+  console.log(nginxFile)
 
   var hookTemplate = Hogan.compile(fs.readFileSync('hook.template', 'utf-8'))
   var hookPath = path.join(domainDirs['git'], 'hooks', 'post-receive')
