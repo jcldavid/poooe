@@ -1,11 +1,9 @@
 {
-    "name": "Poooe",
+    "name": "poooe",
     "version": "1.0.0",
     "author": "Cyrus David <david@jcyr.us>",
     "description": "Node.js/PHP Init Script",
-    "bin": {
-        "make_site": "./makesite.js"
-    },
+    "bin": "./makesite.js",
     "scripts": {
         "create": "node ./makesite.js"
     },
