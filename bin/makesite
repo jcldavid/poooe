@@ -190,13 +190,13 @@ function findOpenPort(callback) {
 }
 
 function writeFiles(options) {
-  var nginxTemplate = Hogan.compile(fs.readFileSync('nginx.template', 'utf-8'))
+  var nginxTemplate = Hogan.compile(fs.readFileSync(__dirname+'/../lib/templates/nginx.template', 'utf-8'))
   var nginxFile = path.join(nginxPath, normalizedDomain + '.conf')
   fs.writeFileSync(nginxFile, nginxTemplate.render(options))
   logger.success('Created config file: ')
   console.log(nginxFile)
 
-  var hookTemplate = Hogan.compile(fs.readFileSync('hook.template', 'utf-8'))
+  var hookTemplate = Hogan.compile(fs.readFileSync(__dirname+'/../lib/templates/hook.template', 'utf-8'))
   var hookPath = path.join(domainDirs['git'], 'hooks', 'post-receive')
   fs.writeFileSync(hookPath, hookTemplate.render(options))
   execSync('chmod +x ' + hookPath)
