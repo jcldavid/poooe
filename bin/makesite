@@ -9,8 +9,8 @@ var sys = require('sys')
 var execSync = require('exec-sync')
 var Hogan = require('hogan.js');
 
-var DatabaseProvider = require('./databaseprovider')
-var LogProvider = require('./logprovider')
+var DatabaseProvider = require('../lib/databaseprovider')
+var LogProvider = require('../lib/logprovider')
 var stream = process.stdout
 var cursor = ansi(stream, {enabled: true})
 var logger = new LogProvider(cursor)
