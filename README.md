@@ -8,6 +8,8 @@ Makes it easier to create initial structure of a website to a production server.
 - a logs directory
 - a www directory (where the files are checked out)
 
+> NOTE: This is a silly project.
+
 ## Install
 
     $ npm install -g poooe
